@@ -1,6 +1,6 @@
 module.exports = (sequelize, dataType) => {
     const entidade = sequelize.define('entidade', {
-        id_entidade: {
+        gid: {
             type: dataType.BIGINT,
             primaryKey: true,
             autoIncrement: true
@@ -24,23 +24,23 @@ module.exports = (sequelize, dataType) => {
     //-> Class method
     entidade.associate = function (models) {
         entidade.belongsTo(models.usuario, {
-            foreignKey: 'id_usuario'
+            foreignKey: 'gid_usuario'
         });
 
         entidade.belongsToMany(models.email, {
             through: 'entidade_email',
             as: 'email',
-            foreignKey: 'id_entidade',
-            otherKey: 'id_email'
+            foreignKey: 'gid_entidade',
+            otherKey: 'gid_email'
         });
 
         entidade.belongsToMany(models.telefone, {
             through: 'entidade_telefone',
             as: 'telefone',
-            foreignKey: 'id_entidade',
-            otherKey: 'id_telefone'
+            foreignKey: 'gid_entidade',
+            otherKey: 'gid_telefone'
         });
-    }
+    };
 
     return entidade;
 };

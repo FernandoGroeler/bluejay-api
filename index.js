@@ -4,7 +4,7 @@ const consign = require('consign');
 const app = express();
 
 //-> Organizar o carregamento dos endpoints da API.
-//   Possibilita definir uma sequencia para inicialização da aplicação.
+//   Possibilita definir uma sequência para inicialização da aplicação.
 //   Usa a biblioteca "consign".
 consign()
     .include('lib/config.js')

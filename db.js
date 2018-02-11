@@ -35,7 +35,7 @@ module.exports = app => {
             //-> executará a função db.models[key].associate(db.models) para garantir o relacionamento correto entre os modelos
             db.models[key].associate(db.models);
         });
-    }
+    };
 
     return db;
-}
+};

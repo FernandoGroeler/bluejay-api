@@ -1,6 +1,6 @@
 module.exports = (sequelize, dataType) => {
     const tipotelefone = sequelize.define('tipotelefone', {
-        id_tipotelefone: {
+        gid: {
             type: dataType.BIGINT,
             primaryKey: true, 
             autoIncrement: true
@@ -24,9 +24,9 @@ module.exports = (sequelize, dataType) => {
     //-> Class method
     tipotelefone.associate = function (models) {
         tipotelefone.hasOne(models.telefone, {
-            foreignKey: 'id_tipotelefone'
+            foreignKey: 'gid_tipotelefone'
         });        
     };
 
     return tipotelefone;
-}
+};

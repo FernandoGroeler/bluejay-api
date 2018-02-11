@@ -7,7 +7,7 @@ module.exports = app => {
             entidade.findAll({
                 /* todo: ativar para autenticar
                 where: {
-                    id_usuario: req.id_usuario
+                    gid_usuario: req.gid_usuario
                 }
                 */
             }).then(result => res.json(result)).catch(error => {
@@ -17,7 +17,7 @@ module.exports = app => {
             });
         })
         .post((req, res) => {
-            req.body.id_usuario = req.id_usuario;
+            req.body.gid_usuario = req.gid_usuario;
 
             entidade.create(req.body).then(result => res.json(result)).catch(error => {
                 res.status(412).json({
@@ -26,13 +26,13 @@ module.exports = app => {
             });
         });
 
-    app.route('/entidade/:id_entidade')
+    app.route('/entidade/:gid')
         // todo: ativar para autenticar .all(app.auth.authenticate())
         .get((req, res) => {
             entidade.findOne({
                 where: {
-                    id_entidade: req.params.id_entidade,
-                    // todo: ativar para autenticar id_usuario: req.usuario.id_usuario
+                    gid: req.params.gid,
+                    // todo: ativar para autenticar gid_usuario: req.usuario.gid
                 }
             }).then(result => {
                 if (result) {
@@ -50,8 +50,8 @@ module.exports = app => {
         .put((req, res) => {
             entidade.update(req.body, {
                 where: {
-                    id_entidade: req.params.id_entidade,
-                    // todo: ativar para autenticar id_usuario: req.usuario.id_usuario
+                    gid: req.params.gid,
+                    // todo: ativar para autenticar gid_usuario: req.usuario.gid
                 }
             }).then(result => res.sendStatus(204)).catch(error => {
                 res.status(412).json({
@@ -62,8 +62,8 @@ module.exports = app => {
         .delete((req, res) => {
             entidade.destroy({
                 where: {
-                    id_entidade: req.params.id_entidade,
-                    // todo: ativar para autenticar id_usuario: req.usuario.id_usuario
+                    gid: req.params.gid,
+                    // todo: ativar para autenticar gid_usuario: req.usuario.gid
                 }
             }).then(result => res.sendStatus(204)).catch(error => {
                 res.status(412).json({

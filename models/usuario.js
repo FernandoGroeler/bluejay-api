@@ -1,7 +1,7 @@
 const bcrypt = require('bcrypt');
 module.exports = (sequelize, dataType) => {
     const usuario = sequelize.define('usuario', {
-        id_usuario: {
+        gid: {
             type: dataType.BIGINT,
             primaryKey: true,
             autoIncrement: true
@@ -25,13 +25,13 @@ module.exports = (sequelize, dataType) => {
     //-> Class method
     usuario.associate = models => {
         usuario.hasOne(models.entidade, {
-            foreignKey: 'id_usuario'
+            foreignKey: 'gid_usuario'
         });
-    }  
+    };  
     
     usuario.isPassword = (encodedPassword, password) => {
         return bcrypt.compareSync(password, encodedPassword);
-    }
+    };
 
     return usuario;
 }

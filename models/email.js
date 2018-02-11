@@ -1,6 +1,6 @@
 module.exports = (sequelize, dataType) => {
     const email = sequelize.define('email', {
-        id_email: {
+        gid: {
             type: dataType.BIGINT,
             primaryKey: true, 
             autoIncrement: true
@@ -34,7 +34,7 @@ module.exports = (sequelize, dataType) => {
     //-> Class method
     email.associate = function (models) {
 
-    } 
+    }; 
 
     return email;
 }

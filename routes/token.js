@@ -16,7 +16,7 @@ module.exports = app => {
             }).then(usuario => {
                 if (usuario.isPassword(usuario.senha, senha)) {
                     const payload = {
-                        id_usuario: usuario.id_usuario
+                        gid: usuario.gid
                     };
                     
                     res.json({

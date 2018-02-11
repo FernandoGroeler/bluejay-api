@@ -2,14 +2,14 @@ module.exports = app => {
     const usuario = app.db.models.usuario;
 
     // para testar - remover quando estiver funcionando
-    app.route('/usuario/:id_usuario')
+    app.route('/usuario/:gid')
         .get((req, res) => {
-            usuario.findById(req.params.id_usuario, {
+            usuario.findById(req.params.gid, {
                 include: [{
                     model: app.db.models.entidade,
                     attributes: ['nome']
                 }],
-                attributes: ['id_usuario', 'senha']
+                attributes: ['gid', 'senha']
             })
             .then(result => res.json(result))
             .catch(error => {
@@ -23,13 +23,12 @@ module.exports = app => {
     app.route('/usuario')
         // todo: ativar para autenticar .all(app.auth.authenticate())
         .get((req, res) => {
-            usuario.findById(req.usuario.id_usuario, {
+            usuario.findById(req.usuario.gid, {
                 include: [{
                     model: app.db.models.entidade,
                     attributes: ['nome']
                 }],
-                attributes: ['id_usuario', 'senha']
-                // todo: attributes: ['id_usuario', 'usuario', 'senha'],
+                attributes: ['gid', 'senha']
             })
             .then(result => res.json(result))
             .catch(error => {
@@ -41,7 +40,7 @@ module.exports = app => {
         .delete((req, res) => {
             usuario.destroy({
                 where: {
-                    id_usuario: req.usuario.id_usuario
+                    gid: req.usuario.gid
                 }
             })
             .then(result => res.sendStatus(204))

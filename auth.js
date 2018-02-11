@@ -13,10 +13,10 @@ module.exports = app => {
     }    
     
     const stg = new strategy(opts, (payload, done) => {
-        usuario.findById(payload.id_usuario).then(usu => {
+        usuario.findById(payload.gid).then(usu => {
             if (usu) {
                 return done(null, {
-                    id_usuario: usuario.id_usuario,
+                    gid: usuario.gid,
                     email: usuario.email
                 });
             }
