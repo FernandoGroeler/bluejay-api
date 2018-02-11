@@ -1,0 +1,29 @@
+{
+  "name": "bluejay-api",
+  "version": "1.0.0",
+  "babel": {},
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "babel-node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Fernando Luis Groeler",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1"
+  },
+  "dependencies": {
+    "bcrypt": "^1.0.3",
+    "body-parser": "^1.18.2",
+    "consign": "^0.1.6",
+    "express": "^4.16.2",
+    "jwt-simple": "^0.5.1",
+    "passport": "^0.4.0",
+    "passport-jwt": "^3.0.1",
+    "pg": "^6.4.2",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^4.32.6"
+  }
+}
