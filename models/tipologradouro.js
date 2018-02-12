@@ -1,8 +1,8 @@
 module.exports = (sequelize, dataType) => {
-    const tipotelefone = sequelize.define('tipotelefone', {
+    const tipologradouro = sequelize.define('tipologradouro', {
         gid: {
             type: dataType.BIGINT,
-            primaryKey: true, 
+            primaryKey: true,
             autoIncrement: true
         },
         descricao: {
@@ -18,15 +18,15 @@ module.exports = (sequelize, dataType) => {
             validate: {
                 notEmpty: true
             }
-        }
+        }        
     });
 
     //-> Class method
-    tipotelefone.associate = models => {
-        tipotelefone.hasOne(models.telefone, {
-            foreignKey: 'gid_tipotelefone'
-        });        
+    tipologradouro.associate = models => {
+        tipologradouro.hasOne(models.endereco, {
+            foreignKey: 'gid_tipologradouro'
+        });
     };
 
-    return tipotelefone;
+    return tipologradouro;
 };

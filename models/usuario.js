@@ -7,7 +7,7 @@ module.exports = (sequelize, dataType) => {
             autoIncrement: true
         },
         senha: {
-            type: dataType.STRING(50),
+            type: dataType.STRING(20),
             allowNull: false,
             validate: {
                 notEmpty: true

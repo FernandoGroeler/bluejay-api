@@ -38,11 +38,11 @@ module.exports = (sequelize, dataType) => {
     });
 
     //-> Class method
-    telefone.associate = function (models) {
+    telefone.associate = models => {
         telefone.belongsTo(models.tipotelefone, {
             foreignKey: 'gid_tipotelefone'
         });        
     };
 
     return telefone;
-}
+};

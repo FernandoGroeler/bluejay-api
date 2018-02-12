@@ -32,9 +32,9 @@ module.exports = (sequelize, dataType) => {
     });
 
     //-> Class method
-    email.associate = function (models) {
+    email.associate = models => {
 
     }; 
 
     return email;
-}
+};

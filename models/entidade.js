@@ -22,7 +22,7 @@ module.exports = (sequelize, dataType) => {
     });
 
     //-> Class method
-    entidade.associate = function (models) {
+    entidade.associate = models => {
         entidade.belongsTo(models.usuario, {
             foreignKey: 'gid_usuario'
         });
@@ -39,6 +39,13 @@ module.exports = (sequelize, dataType) => {
             as: 'telefone',
             foreignKey: 'gid_entidade',
             otherKey: 'gid_telefone'
+        });
+
+        entidade.belongsToMany(models.endereco, {
+            through: 'entidade_endereco',
+            as: 'endereco',
+            foreignKey: 'gid_entidade',
+            otherKey: 'gid_endereco'
         });
     };
 
